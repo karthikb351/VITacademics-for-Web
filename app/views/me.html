@@ -1,0 +1,34 @@
+<div layout="column" layout-fill>
+<section layout="row" flex>
+    <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="true" ne >
+        <md-toolbar>
+            <h2 class="md-toolbar-tools">
+        <span ng-bind="'VITacademics for Web'"></span>
+
+      </h2>
+        </md-toolbar>
+        <md-content flex>
+        <div ng-repeat="course in courses">
+            <md-button class="menu-item menu-title md-menu-item" ng-click="setCurrentCourse(course);">
+                {{course.course_title}}
+            </md-button>
+        </div>
+        </md-content>
+        <md-toolbar class="md-toolbar-tools" layout-align="center center">
+	        <md-button >{{lastRefreshed | timeAgo}}</md-button>
+        </md-toolbar>
+    </md-sidenav>
+    <md-content flex layout="column"  md-theme="{{ getColorForPercentage(currentCourse.percentage) || 'default' }}">
+        <md-toolbar md-theme-watch="true">
+		    <div class="md-toolbar-tools">
+		      <span class="md-flex" ng-bind="(currentCourse.course_title || 'VITacademics for Web')"></span>
+		      <span flex></span>
+		      <span class="md-flex" ng-bind="(currentCourse.slot + ' SLOT'|| '')"></span>
+		    </div>
+		  </md-toolbar>
+		  <md-content style="padding: 100px;">
+		  		<md-progress-linear  md-theme-watch="true" md-mode="determinate" value="{{currentCourse.percentage}}"></md-progress-linear>
+		  </md-content>
+    </md-content>
+</section>
+</div>

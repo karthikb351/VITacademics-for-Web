@@ -1,0 +1,20 @@
+<md-content md-theme="blue">
+    <section layout="column" layout-sm="column" layout-align="center center">
+
+        <form style="padding: 20px;" class="space-around">
+            <div class="row">
+                <md-text-float label="Registration Number" ng-model="user.regno"></md-text-float>
+                <md-text-float class="disable-textfield-animation" label="Date of Birth" ng-model="user.dob" type="date"></md-text-float>
+            </div>
+
+        </form>
+        <div layout="row">
+            <md-button ng-show="!loggingIn" id="login-button" ng-click="loginStart()" class="md-raised md-primary">Login</md-button>
+            <div id="login-progress" ng-show="loggingIn">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+            <md-button ng-show="gotData" id="data-button" href="#/about" class="md-raised md-primary">See Stuff</md-button>
+        </div>
+    </section>
+</md-content>
+
