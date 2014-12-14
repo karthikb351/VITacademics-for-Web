@@ -14,7 +14,7 @@ angular
         function($http, $rootScope, localStorageService) {
             var service = {};
             service.Login = function(regno, dob, callback) {
-                $http.get('http://localhost:3000/api/vellore/login/auto', {
+                $http.get('http://vitacademics-dev.herokuapp.com/api/vellore/login/auto', {
                         params: {
                             regno: regno,
                             dob: dob
@@ -23,7 +23,7 @@ angular
                     .success(function(data) {
                         console.log(data);
                         if (data.status.code === 0) {
-                            $http.get('http://localhost:3000/api/vellore/data/first', {
+                            $http.get('http://vitacademics-dev.herokuapp.com/api/vellore/data/first', {
                                     params: {
                                         regno: regno,
                                         dob: dob
