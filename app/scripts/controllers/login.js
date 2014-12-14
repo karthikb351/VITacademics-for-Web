@@ -11,6 +11,8 @@ angular.module('vitacademicsForWebApp')
 .controller('LoginCtrl',
     ['$scope', '$rootScope', '$location', 'AuthenticationService',
     function ($scope, $rootScope, $location, AuthenticationService) {
+         $scope.user = {}
+
         // reset login status
         AuthenticationService.ClearCredentials();
 

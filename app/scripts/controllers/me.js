@@ -25,14 +25,22 @@ angular.module('vitacademicsForWebApp')
         $scope.regno = data.regno;
         $scope.lastRefreshed = data.refreshed;
 
+        $scope.removeDetails = function(course)	{
+        	var dummy = JSON.parse( JSON.stringify( course) );
+        	dummy.attendance.details='truncated';
+        	return dummy;
+        };
+
         $scope.getColorForPercentage=function(value)	{
         	var color = 'green';
-        	if(value>=75 && value<80)
+        	if(value>=75 && value<80)	{
         		color = 'orange';
-        	if(value<75)
+        	}
+        	if(value<75)	{
         		color = 'red';
+        	}
         	return color;
-        }
+        };
 
         $scope.setCurrentCourse=function(course)	{
         	$scope.currentCourse=course;
